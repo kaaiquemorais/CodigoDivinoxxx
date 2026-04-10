@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Código Divino – Comprende la Biblia de Principio a Fin</title>
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/76XzSZYc/CODIGO-DIVINO.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,7 +27,7 @@
       --muted:       rgba(42,26,14,0.62);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
       font-family: 'Raleway', sans-serif;
@@ -94,6 +95,7 @@
     }
 
     .cta-wrap { text-align: center; padding: 50px 0 10px; }
+    .cta--sm { font-size: 0.82rem; padding: 14px 34px; letter-spacing: 2px; }
 
     /* ── HERO ──────────────────────────────────── */
     .hero {
@@ -110,7 +112,7 @@
     .hero__bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1920&q=90');
+      background-image: url('https://i.postimg.cc/WzX7p7k2/faca-um-background-202604100018-(1).jpg');
       background-size: cover;
       background-position: center;
       z-index: 0;
@@ -136,12 +138,12 @@
 
     .hero__title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-size: clamp(1.4rem, 4vw, 2.8rem);
       font-weight: 900;
-      letter-spacing: 8px;
+      letter-spacing: 6px;
       line-height: 1.05;
       white-space: nowrap;
-      margin-bottom: 22px;
+      margin-bottom: 14px;
       background: linear-gradient(135deg, #D4A017, #FFD700, #F0D060, #B8860B, #D4A017);
       background-size: 200% auto;
       -webkit-background-clip: text;
@@ -159,13 +161,13 @@
 
     .hero__sub {
       font-family: 'Raleway', sans-serif;
-      font-size: clamp(0.82rem, 2.2vw, 1.15rem);
+      font-size: clamp(0.65rem, 1.6vw, 0.88rem);
       font-weight: 400;
-      letter-spacing: 3.5px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
       color: #fff;
-      line-height: 1.7;
-      margin-bottom: 42px;
+      line-height: 1.6;
+      margin-bottom: 22px;
     }
 
     .hero__book {
@@ -177,11 +179,11 @@
     }
 
     .hero__desc {
-      font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+      font-size: clamp(0.78rem, 1.4vw, 0.95rem);
       color: rgba(255,255,255,0.88);
-      line-height: 1.85;
-      max-width: 680px;
-      margin: 0 auto 44px;
+      line-height: 1.75;
+      max-width: 600px;
+      margin: 0 auto 28px;
     }
 
     /* ── SECTION SHARED ────────────────────────── */
@@ -613,13 +615,44 @@
 
     /* ── RESPONSIVE ────────────────────────────── */
     @media (max-width: 720px) {
+      /* Hero */
+      .hero { padding: 60px 16px 50px; }
       .hero__book { max-width: 75%; }
+      .hero__title { white-space: normal; font-size: clamp(1.5rem, 8vw, 2.2rem); letter-spacing: 4px; }
+      .hero__sub { font-size: clamp(0.6rem, 2.8vw, 0.78rem); letter-spacing: 1.5px; }
+      .hero__desc { font-size: 0.82rem; }
+
+      /* CTA buttons */
+      .cta {
+        white-space: normal;
+        font-size: 0.75rem;
+        padding: 14px 22px;
+        letter-spacing: 1.5px;
+        max-width: 90vw;
+        display: inline-block;
+        text-align: center;
+      }
+      .cta--sm { font-size: 0.72rem; padding: 12px 20px; }
+
+      /* For-you */
+      .for-you { padding: 28px 18px; }
+      .for-you__title { white-space: normal; font-size: 1rem; }
+
+      /* Bonus */
       .bonus-card { flex-direction: column; }
-      .bonus-img  { width: 100%; height: 210px; }
-      .guarantee-wrap { gap: 24px; }
-      .guarantee-seal { width: 120px; }
-      .pricing-box { padding: 36px 22px; }
-      .for-you { padding: 32px 24px; }
+      .bonus-img  { width: 100%; height: auto; }
+      .bonus-card__text { padding: 20px 18px 24px; }
+
+      /* Guarantee */
+      .guarantee-wrap { gap: 20px; }
+      .guarantee-seal { width: 100px; }
+
+      /* Pricing */
+      .pricing-box { padding: 28px 16px; }
+
+      /* Sections */
+      .section { padding: 60px 16px; }
+      .container { padding: 0 16px; }
     }
   </style>
 </head>
@@ -647,7 +680,7 @@
       de una manera clara, organizada y accesible para todos
     </p>
 
-    <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta">
+    <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta cta--sm">
       QUIERO COMPRENDER LA BIBLIA
     </a>
   </div>
