@@ -70,6 +70,7 @@
       overflow: hidden;
       transition: all 0.35s ease;
       box-shadow: 0 6px 28px rgba(34,197,94,0.35);
+      white-space: nowrap;
     }
     .cta::before {
       content: '';
@@ -337,18 +338,22 @@
       background: linear-gradient(135deg, rgba(212,175,55,0.09), rgba(212,175,55,0.02));
       border: 1px solid rgba(212,175,55,0.32);
       border-radius: 20px;
-      padding: 32px 34px;
+      overflow: hidden;
       margin-bottom: 24px;
       display: flex;
-      gap: 32px;
-      align-items: center;
+      flex-direction: column;
       transition: transform 0.3s, box-shadow 0.3s;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .bonus-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 18px 44px rgba(212,175,55,0.18);
     }
-    .bonus-card__text { flex: 1; }
+    .bonus-card__text {
+      padding: 28px 32px 32px;
+    }
     .bonus-badge {
       font-family: 'Cinzel', serif;
       color: var(--gold);
@@ -380,12 +385,10 @@
     .price-free { color: var(--green-mid); font-weight: 700; font-size: 1.08rem; }
 
     .bonus-img {
-      width: 155px;
-      height: 195px;
-      object-fit: cover;
-      border-radius: 12px;
-      flex-shrink: 0;
-      box-shadow: 0 12px 36px rgba(0,0,0,0.55);
+      width: 100%;
+      height: auto;
+      display: block;
+      background: transparent;
     }
 
     /* ── TOTAL VALUE ───────────────────────────── */
@@ -583,11 +586,10 @@
     .faq-item.open .faq-q::after { transform: rotate(45deg); }
 
     .faq-a {
-      max-height: 0;
+      max-height: 320px;
       overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.3s ease;
+      padding: 20px 26px;
     }
-    .faq-item.open .faq-a { max-height: 320px; padding: 20px 26px; }
     .faq-a p { font-size: 0.94rem; color: var(--muted); line-height: 1.85; }
 
     /* ── RESPONSIVE ────────────────────────────── */
@@ -614,7 +616,7 @@
     </p>
 
     <img
-      src="https://i.postimg.cc/7YqqzL8s/TODOS-OS-LIVROS.jpg"
+      src="https://i.postimg.cc/dQ9GrnSx/5-REGALOS-EXCLUSIVOS.png"
       alt="Código Divino – Todos los libros"
       class="hero__book"
     >
@@ -675,35 +677,35 @@
 
     <div class="book-grid">
       <div class="book-card">
-        <img src="https://i.postimg.cc/Pr5BhvkT/1.jpg" alt="170 Bosquejos del Libro de Josué">
+        <img src="https://i.postimg.cc/LX3gk6v1/1.png" alt="170 Bosquejos del Libro de Josué">
         <p class="book-card__desc">
           Resumenes temáticos con enseñanzas, aplicaciones y oraciones que te guiarán
           por todo el libro de Josué de forma clara y visual.
         </p>
       </div>
       <div class="book-card">
-        <img src="https://i.postimg.cc/dtVzvZK0/2.jpg" alt="30 Días de Oración">
+        <img src="https://i.postimg.cc/hP5z1Y8M/2.png" alt="30 Días de Oración">
         <p class="book-card__desc">
           Una guía devocional para fortalecer tu vida de oración durante 30 días,
           basada en los cinco primeros libros de la Biblia.
         </p>
       </div>
       <div class="book-card">
-        <img src="https://i.postimg.cc/c4LVZtNw/3.jpg" alt="Génesis Versículo por Versículo">
+        <img src="https://i.postimg.cc/VvNvj9Jy/3.png" alt="Génesis Versículo por Versículo">
         <p class="book-card__desc">
           Estudio profundo, práctico y espiritual de cada versículo del libro de Génesis,
           con reflexiones y aplicaciones diarias.
         </p>
       </div>
       <div class="book-card">
-        <img src="https://i.postimg.cc/YqDTS2pj/4.jpg" alt="Éxodo">
+        <img src="https://i.postimg.cc/cHF44KXK/4.png" alt="Éxodo">
         <p class="book-card__desc">
           Comprensión clara y edificante del mensaje de Éxodo,
           explicado de forma accesible para todo lector.
         </p>
       </div>
       <div class="book-card">
-        <img src="https://i.postimg.cc/vH2Cm8Qn/5.jpg" alt="Levítico">
+        <img src="https://i.postimg.cc/SN2Nkx8K/5.png" alt="Levítico">
         <p class="book-card__desc">
           Guía espiritual para entender el propósito de las leyes, ofrendas y enseñanzas
           de Levítico, aplicadas a la vida moderna.
@@ -771,7 +773,7 @@
     <div class="who-grid">
       <div class="who-card">
         <img
-          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80"
+          src="https://i.postimg.cc/15w04s1B/Captura-de-tela-2026-04-10-025333.png"
           alt="Profesores y Pastores">
         <div class="who-card__body">
           <h3>Profesores y Pastores</h3>
@@ -780,7 +782,7 @@
       </div>
       <div class="who-card">
         <img
-          src="https://images.unsplash.com/photo-1585974738771-84483dd9f89f?w=600&q=80"
+          src="https://i.postimg.cc/Nfc9JXZM/CODIGO-DIVINO-(4).png"
           alt="Estudiantes y nuevos creyentes">
         <div class="who-card__body">
           <h3>Estudiantes y nuevos creyentes</h3>
@@ -789,7 +791,7 @@
       </div>
       <div class="who-card">
         <img
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80"
+          src="https://i.postimg.cc/zf63nHnG/CODIGO-DIVINO-(3).png"
           alt="Líderes de célula o grupos pequeños">
         <div class="who-card__body">
           <h3>Líderes de célula o grupos pequeños</h3>
@@ -798,7 +800,7 @@
       </div>
       <div class="who-card">
         <img
-          src="https://images.unsplash.com/photo-1536321115970-5dfa13356211?w=600&q=80"
+          src="https://i.postimg.cc/02nQVBpL/CODIGO-DIVINO-(2).png"
           alt="Familias">
         <div class="who-card__body">
           <h3>Familias</h3>
@@ -828,6 +830,7 @@
 
     <!-- Bono 1 -->
     <div class="bonus-card">
+      <img src="https://i.postimg.cc/L472CF7s/3.png" alt="Los 10 Mandamientos" class="bonus-img">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 1</p>
         <h3>Los 10 Mandamientos: Historia y Aplicación Espiritual</h3>
@@ -838,11 +841,11 @@
           <span class="price-free">Por $0</span>
         </div>
       </div>
-      <img src="https://i.postimg.cc/B68gZFCg/3.jpg" alt="Los 10 Mandamientos" class="bonus-img">
     </div>
 
     <!-- Bono 2 -->
     <div class="bonus-card">
+      <img src="https://i.postimg.cc/gJjbsgH0/4.png" alt="Los Milagros de Jesús" class="bonus-img">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 2</p>
         <h3>Los Milagros de Jesús</h3>
@@ -853,11 +856,11 @@
           <span class="price-free">Por $0</span>
         </div>
       </div>
-      <img src="https://i.postimg.cc/tTLzsgr5/4.jpg" alt="Los Milagros de Jesús" class="bonus-img">
     </div>
 
     <!-- Bono 3 -->
     <div class="bonus-card">
+      <img src="https://i.postimg.cc/hjXPvDw5/2.png" alt="Historias Bíblicas" class="bonus-img">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 3</p>
         <h3>Historias Bíblicas para toda la familia</h3>
@@ -868,11 +871,11 @@
           <span class="price-free">Por $0</span>
         </div>
       </div>
-      <img src="https://i.postimg.cc/tT15R6zY/2.jpg" alt="Historias Bíblicas" class="bonus-img">
     </div>
 
     <!-- Bono 4 -->
     <div class="bonus-card">
+      <img src="https://i.postimg.cc/mkFffhq4/1.png" alt="Devocionales de Poder" class="bonus-img">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 4</p>
         <h3>Devocionales de Poder: 30 días para profundizar tu fe</h3>
@@ -883,11 +886,11 @@
           <span class="price-free">Por $0</span>
         </div>
       </div>
-      <img src="https://i.postimg.cc/TPN0X0nT/1.jpg" alt="Devocionales de Poder" class="bonus-img">
     </div>
 
     <!-- Bono 5 -->
     <div class="bonus-card">
+      <img src="https://i.postimg.cc/XqySSXh6/5.png" alt="Manual de Interpretación Bíblica" class="bonus-img">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 5</p>
         <h3>Manual de Interpretación Bíblica para Principiantes</h3>
@@ -899,7 +902,6 @@
           <span class="price-free">Por $0</span>
         </div>
       </div>
-      <img src="https://i.postimg.cc/3RPZkwSM/5.jpg" alt="Manual de Interpretación Bíblica" class="bonus-img">
     </div>
 
     <div class="total-val">
@@ -949,7 +951,7 @@
 <section class="section">
   <div class="container">
     <div class="pricing-box">
-      <img src="https://i.postimg.cc/7YqqzL8s/TODOS-OS-LIVROS.jpg" alt="Código Divino – Todos los libros">
+      <img src="https://i.postimg.cc/dQ9GrnSx/5-REGALOS-EXCLUSIVOS.png" alt="Código Divino – Todos los libros">
 
       <p class="pricing-box__eyebrow">PRECIO ESPECIAL DE LANZAMIENTO</p>
       <p class="pricing-box__headline">¡Llévate TODO esto por solo</p>
@@ -994,17 +996,17 @@
   <div class="container">
     <div class="guarantee-wrap">
       <div class="guarantee-seal">
-        <img src="https://i.postimg.cc/7hPDFx4k/SELO-GARANTIA.jpg" alt="Garantía Incondicional de 7 Días">
+        <img src="https://i.postimg.cc/TwgFCBWY/6.png" alt="Garantía Incondicional de 7 Días">
       </div>
       <div class="guarantee-text">
         <p><strong>¿Aún tienes dudas? Tranquilo, tu compra está 100% protegida.</strong></p>
         <p>
           Si por cualquier motivo el contenido que recibes no cumple con lo prometido, tienes hasta
-          <strong>(7 días)</strong> para solicitar el reembolso <strong>(completo)</strong>,
+          <strong>7 días</strong> para solicitar el reembolso <strong>completo</strong>,
           sin preguntas ni complicaciones.
         </p>
         <p>
-          Recuerda que tu acceso es <strong>(de por vida)</strong>, y constantemente añadimos
+          Recuerda que tu acceso es <strong>de por vida</strong>, y constantemente añadimos
           nuevos materiales diseñados para fortalecer tu fe, tu ministerio y tu enseñanza en la Iglesia.
         </p>
       </div>
