@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Código Divino – Comprende la Biblia de Principio a Fin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold:        #D4AF37;
+      --gold-light:  #F5D870;
+      --gold-mid:    #C9A84C;
+      --gold-dark:   #8B6914;
+      --green:       #4ADE80;
+      --green-mid:   #22C55E;
+      --green-dark:  #16A34A;
+      --bg:          #080810;
+      --bg2:         #0E0E1A;
+      --bg3:         #13131F;
+      --white:       #F5F3EE;
+      --muted:       rgba(245,243,238,0.65);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITIES ─────────────────────────────── */
+    .gold { color: var(--gold); }
+    .green-text { color: var(--green-mid); }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .divider {
+      width: 90px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 18px auto 0;
+    }
+
+    /* ── CTA BUTTON ────────────────────────────── */
+    .cta {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      color: #fff;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 18px 52px;
+      border-radius: 60px;
+      border: 2px solid rgba(74,222,128,0.35);
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s ease;
+      box-shadow: 0 6px 28px rgba(34,197,94,0.35);
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+      transition: left 0.45s ease;
+    }
+    .cta:hover::before { left: 100%; }
+    .cta:hover {
+      background: rgba(22,163,74,0.18);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-color: rgba(74,222,128,0.85);
+      box-shadow: 0 10px 40px rgba(34,197,94,0.55), inset 0 0 24px rgba(74,222,128,0.12);
+      color: var(--green);
+      transform: translateY(-3px);
+    }
+
+    .cta-wrap { text-align: center; padding: 50px 0 10px; }
+
+    /* ── HERO ──────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 100px 24px 80px;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1920&q=90');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(6,2,0,0.28) 0%,
+        rgba(12,5,0,0.18) 40%,
+        rgba(6,2,0,0.38) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 920px;
+    }
+
+    .hero__title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      letter-spacing: 8px;
+      line-height: 1.05;
+      white-space: nowrap;
+      margin-bottom: 22px;
+      background: linear-gradient(135deg, #C9A030, #FFD700, #F0D060, #D4AF37, #C9A030);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shine 5s linear infinite;
+      text-shadow: none;
+      filter: drop-shadow(0 0 28px rgba(212,175,55,0.6));
+    }
+
+    @keyframes shine {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .hero__sub {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(0.82rem, 2.2vw, 1.15rem);
+      font-weight: 400;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.7;
+      margin-bottom: 42px;
+    }
+
+    .hero__book {
+      width: 100%;
+      max-width: 680px;
+      display: block;
+      margin: 0 auto 36px;
+      filter: drop-shadow(0 24px 60px rgba(212,175,55,0.25));
+    }
+
+    .hero__desc {
+      font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+      color: rgba(255,255,255,0.88);
+      line-height: 1.85;
+      max-width: 680px;
+      margin: 0 auto 44px;
+    }
+
+    /* ── SECTION SHARED ────────────────────────── */
+    .section { padding: 86px 24px; }
+    .section--alt { background: var(--bg2); }
+    .section--alt2 { background: var(--bg3); }
+
+    .section__head {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section__title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    /* ── FOR-YOU BOX ───────────────────────────── */
+    .for-you {
+      background: linear-gradient(135deg, rgba(212,175,55,0.09), rgba(212,175,55,0.03));
+      border: 1px solid rgba(212,175,55,0.32);
+      border-radius: 20px;
+      padding: 42px 44px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .for-you__title {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1.25rem;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .for-you__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 1.04rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 14px;
+    }
+
+    /* ── BOOK CARDS ────────────────────────────── */
+    .book-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      max-width: 680px;
+      margin: 0 auto 14px;
+    }
+
+    .book-card {
+      background: transparent;
+      border: 1px solid rgba(212,175,55,0.28);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.32s ease, box-shadow 0.32s ease;
+    }
+    .book-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 55px rgba(212,175,55,0.2);
+    }
+    .book-card img {
+      width: 100%;
+      display: block;
+      background: transparent;
+    }
+    .book-card__desc {
+      padding: 22px 24px;
+      font-size: 0.94rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    /* ── ADVANTAGES ────────────────────────────── */
+    .adv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+    }
+
+    .adv-card {
+      background: linear-gradient(135deg, rgba(212,175,55,0.09), rgba(8,8,16,0.85));
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 18px;
+      padding: 32px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .adv-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 38px rgba(212,175,55,0.18);
+    }
+    .adv-card__icon { font-size: 1.7rem; flex-shrink: 0; margin-top: 2px; }
+    .adv-card h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .adv-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── WHO CAN USE ───────────────────────────── */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .who-card {
+      background: transparent;
+      border: 1px solid rgba(212,175,55,0.26);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.32s, box-shadow 0.32s;
+    }
+    .who-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 50px rgba(212,175,55,0.18);
+    }
+    .who-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      background: transparent;
+    }
+    .who-card__body { padding: 24px 22px; }
+    .who-card h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .who-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── BONUSES ───────────────────────────────── */
+    .bonus-intro {
+      font-size: 1.04rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .bonus-card {
+      background: linear-gradient(135deg, rgba(212,175,55,0.09), rgba(212,175,55,0.02));
+      border: 1px solid rgba(212,175,55,0.32);
+      border-radius: 20px;
+      padding: 32px 34px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .bonus-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(212,175,55,0.18);
+    }
+    .bonus-card__text { flex: 1; }
+    .bonus-badge {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .bonus-card h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--white);
+      font-size: 1.08rem;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .bonus-card p {
+      font-size: 0.91rem;
+      color: var(--muted);
+      line-height: 1.72;
+      margin-bottom: 16px;
+    }
+    .price-line { font-size: 0.95rem; }
+    .price-old {
+      color: #F87171;
+      text-decoration: line-through;
+      margin-right: 10px;
+      font-weight: 600;
+    }
+    .price-free { color: var(--green-mid); font-weight: 700; font-size: 1.08rem; }
+
+    .bonus-img {
+      width: 155px;
+      height: 195px;
+      object-fit: cover;
+      border-radius: 12px;
+      flex-shrink: 0;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.55);
+    }
+
+    /* ── TOTAL VALUE ───────────────────────────── */
+    .total-val {
+      text-align: center;
+      padding: 40px 0 10px;
+    }
+    .total-val .big {
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+    }
+    .total-val .struck { text-decoration: line-through; color: #F87171; }
+    .total-val p {
+      font-size: 1.02rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 620px;
+      margin: 12px auto 0;
+    }
+    .total-val .gratis { color: var(--green-mid); font-weight: 700; }
+
+    /* ── FRUSTRATION / SOCIAL ──────────────────── */
+    .text-center-block {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .text-center-block h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 4vw, 2.3rem);
+      margin-bottom: 20px;
+      line-height: 1.35;
+    }
+    .text-center-block p {
+      font-size: 1.04rem;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    /* ── PRICING BOX ───────────────────────────── */
+    .pricing-box {
+      background: linear-gradient(145deg, rgba(212,175,55,0.11), rgba(212,175,55,0.03));
+      border: 2px solid rgba(212,175,55,0.42);
+      border-radius: 28px;
+      padding: 58px 48px;
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pricing-box img {
+      width: 100%;
+      max-width: 520px;
+      border-radius: 0;
+      margin-bottom: 36px;
+      background: transparent;
+    }
+
+    .pricing-box__eyebrow {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1.18rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .pricing-box__headline {
+      font-size: 1.12rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pricing-box__price {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.8rem, 7vw, 4.2rem);
+      font-weight: 900;
+      color: var(--green-mid);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .pricing-box__note {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 34px;
+    }
+
+    .pricing-list {
+      list-style: none;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      text-align: left;
+    }
+    .pricing-list li {
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(212,175,55,0.12);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.55;
+    }
+
+    .pricing-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin: 16px 0;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .badge-pill {
+      display: inline-block;
+      padding: 8px 22px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 6px 4px;
+    }
+    .badge-red {
+      background: rgba(239,68,68,0.15);
+      border: 1px solid rgba(239,68,68,0.4);
+      color: #FCA5A5;
+    }
+    .badge-gold {
+      background: rgba(212,175,55,0.14);
+      border: 1px solid rgba(212,175,55,0.4);
+      color: var(--gold-light);
+    }
+
+    .delivery-note {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 18px;
+    }
+
+    /* ── GUARANTEE ─────────────────────────────── */
+    .guarantee-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 52px;
+      flex-wrap: wrap;
+    }
+
+    .guarantee-seal {
+      flex-shrink: 0;
+      width: 180px;
+    }
+    .guarantee-seal img {
+      width: 100%;
+      display: block;
+    }
+
+    .guarantee-text { flex: 1; min-width: 280px; }
+    .guarantee-text p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 14px;
+    }
+
+    /* ── FAQ ───────────────────────────────────── */
+    .faq-item {
+      border: 1px solid rgba(212,175,55,0.22);
+      border-radius: 14px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      padding: 20px 26px;
+      background: rgba(212,175,55,0.07);
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: var(--gold-light);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      gap: 16px;
+      transition: background 0.25s;
+    }
+    .faq-q:hover { background: rgba(212,175,55,0.12); }
+    .faq-q::after {
+      content: '+';
+      font-size: 1.6rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-a { max-height: 320px; padding: 20px 26px; }
+    .faq-a p { font-size: 0.94rem; color: var(--muted); line-height: 1.85; }
+
+    /* ── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 720px) {
+      .bonus-card { flex-direction: column; }
+      .bonus-img  { width: 100%; height: 210px; }
+      .guarantee-wrap { justify-content: center; text-align: center; }
+      .pricing-box { padding: 36px 22px; }
+      .for-you { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ HERO ══ -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <h1 class="hero__title">CÓDIGO DIVINO</h1>
+    <p class="hero__sub">
+      COMPRENDE LA BIBLIA DE PRINCIPIO A FIN CON<br>
+      CLARIDAD, PROFUNDIDAD Y PODER ESPIRITUAL
+    </p>
+
+    <img
+      src="https://i.postimg.cc/7YqqzL8s/TODOS-OS-LIVROS.jpg"
+      alt="Código Divino – Todos los libros"
+      class="hero__book"
+    >
+
+    <p class="hero__desc">
+      Un estudio visual y didáctico que revela los misterios y enseñanzas de toda la Biblia
+      de una manera clara, organizada y accesible para todos
+    </p>
+
+    <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta">
+      QUIERO COMPRENDER LA BIBLIA
+    </a>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════ QUÉ ES ══ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title">¿Qué es <span class="gold">CÓDIGO DIVINO</span>?</h2>
+      <div class="divider"></div>
+    </div>
+
+    <p style="text-align:center;font-size:1.06rem;line-height:1.85;color:var(--muted);max-width:800px;margin:0 auto 48px;">
+      Es un material exclusivo que te lleva a través de toda la historia de la Biblia con bosquejos visuales,
+      ilustraciones impactantes y explicaciones claras, diseñadas para ayudarte a entender y aplicar
+      la Palabra de Dios como nunca antes.
+    </p>
+
+    <div class="for-you">
+      <p class="for-you__title">Este material es para ti si:</p>
+      <div class="for-you__item"><span>✔️</span> Quieres comprender verdaderamente cada capítulo y versículo de la Biblia.</div>
+      <div class="for-you__item"><span>✔️</span> Quieres enseñar a otros de manera didáctica y espiritual.</div>
+      <div class="for-you__item"><span>✔️</span> Buscas una forma visual y práctica de memorizar historias y enseñanzas.</div>
+      <div class="for-you__item"><span>✔️</span> Deseas aprender sobre la vida y enseñanzas de Jesús de forma clara.</div>
+      <div class="for-you__item"><span>✔️</span> Te sientes frustrado al leer la Biblia sin entender su mensaje profundo.</div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta">SÍ, QUIERO</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════ QUÉ INCLUYE ══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title">¿Qué incluye<br><span class="gold">CÓDIGO DIVINO</span>?</h2>
+      <div class="divider"></div>
+      <p style="margin-top:22px;font-size:1.04rem;color:var(--muted);max-width:720px;margin-left:auto;margin-right:auto;line-height:1.8;">
+        Recibirás una biblioteca espiritual completa, compuesta por estudios visuales,
+        devocionales y explicaciones versículo por versículo de los principales libros de la Biblia:
+      </p>
+    </div>
+
+    <div class="book-grid">
+      <div class="book-card">
+        <img src="https://i.postimg.cc/Pr5BhvkT/1.jpg" alt="170 Bosquejos del Libro de Josué">
+        <p class="book-card__desc">
+          Resumenes temáticos con enseñanzas, aplicaciones y oraciones que te guiarán
+          por todo el libro de Josué de forma clara y visual.
+        </p>
+      </div>
+      <div class="book-card">
+        <img src="https://i.postimg.cc/dtVzvZK0/2.jpg" alt="30 Días de Oración">
+        <p class="book-card__desc">
+          Una guía devocional para fortalecer tu vida de oración durante 30 días,
+          basada en los cinco primeros libros de la Biblia.
+        </p>
+      </div>
+      <div class="book-card">
+        <img src="https://i.postimg.cc/c4LVZtNw/3.jpg" alt="Génesis Versículo por Versículo">
+        <p class="book-card__desc">
+          Estudio profundo, práctico y espiritual de cada versículo del libro de Génesis,
+          con reflexiones y aplicaciones diarias.
+        </p>
+      </div>
+      <div class="book-card">
+        <img src="https://i.postimg.cc/YqDTS2pj/4.jpg" alt="Éxodo">
+        <p class="book-card__desc">
+          Comprensión clara y edificante del mensaje de Éxodo,
+          explicado de forma accesible para todo lector.
+        </p>
+      </div>
+      <div class="book-card">
+        <img src="https://i.postimg.cc/vH2Cm8Qn/5.jpg" alt="Levítico">
+        <p class="book-card__desc">
+          Guía espiritual para entender el propósito de las leyes, ofrendas y enseñanzas
+          de Levítico, aplicadas a la vida moderna.
+        </p>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta">QUIERO COMPRENDER LA BIBLIA</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════ VENTAJAS ══ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title">Ventajas de usar<br><span class="gold">CÓDIGO DIVINO</span></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="adv-grid">
+      <div class="adv-card">
+        <span class="adv-card__icon">✅</span>
+        <div>
+          <h3>Comprensión profunda</h3>
+          <p>Entenderás la narrativa bíblica desde Génesis hasta Apocalipsis.</p>
+        </div>
+      </div>
+      <div class="adv-card">
+        <span class="adv-card__icon">✅</span>
+        <div>
+          <h3>Comprensión profunda</h3>
+          <p>Entenderás la narrativa bíblica desde Génesis hasta Apocalipsis.</p>
+        </div>
+      </div>
+      <div class="adv-card">
+        <span class="adv-card__icon">✅</span>
+        <div>
+          <h3>Comprensión profunda</h3>
+          <p>Entenderás la narrativa bíblica desde Génesis hasta Apocalipsis.</p>
+        </div>
+      </div>
+      <div class="adv-card">
+        <span class="adv-card__icon">✅</span>
+        <div>
+          <h3>Comprensión profunda</h3>
+          <p>Entenderás la narrativa bíblica desde Génesis hasta Apocalipsis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════ QUIÉN PUEDE USAR ══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title gold">¿Quién puede usarlo?</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <img
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80"
+          alt="Profesores y Pastores">
+        <div class="who-card__body">
+          <h3>Profesores y Pastores</h3>
+          <p>Material perfecto para clases, prédicas y discipulados.</p>
+        </div>
+      </div>
+      <div class="who-card">
+        <img
+          src="https://images.unsplash.com/photo-1585974738771-84483dd9f89f?w=600&q=80"
+          alt="Estudiantes y nuevos creyentes">
+        <div class="who-card__body">
+          <h3>Estudiantes y nuevos creyentes</h3>
+          <p>Una forma sencilla y poderosa de aprender.</p>
+        </div>
+      </div>
+      <div class="who-card">
+        <img
+          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80"
+          alt="Líderes de célula o grupos pequeños">
+        <div class="who-card__body">
+          <h3>Líderes de célula o grupos pequeños</h3>
+          <p>Una herramienta que transforma vidas.</p>
+        </div>
+      </div>
+      <div class="who-card">
+        <img
+          src="https://images.unsplash.com/photo-1536321115970-5dfa13356211?w=600&q=80"
+          alt="Familias">
+        <div class="who-card__body">
+          <h3>Familias</h3>
+          <p>Enseña a tus hijos de forma visual y memorable.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta">SÍ, QUIERO APRENDER</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ BONOS ══ -->
+<section class="section section--alt2">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title gold">¡BONOS EXCLUSIVOS POR<br>TIEMPO LIMITADO!</h2>
+      <div class="divider"></div>
+      <p class="bonus-intro" style="margin-top:22px;">
+        Al adquirir CÓDIGO DIVINO hoy, recibirás totalmente GRATIS estos 5 regalos exclusivos
+        que complementarán tu estudio y crecimiento espiritual:
+      </p>
+    </div>
+
+    <!-- Bono 1 -->
+    <div class="bonus-card">
+      <div class="bonus-card__text">
+        <p class="bonus-badge">🎁 BONO 1</p>
+        <h3>Los 10 Mandamientos: Historia y Aplicación Espiritual</h3>
+        <p>Descubre el origen, el significado profundo y cómo aplicar los mandamientos en la vida moderna.
+           Una guía clara y reveladora para vivir según la voluntad de Dios.</p>
+        <div class="price-line">
+          <span class="price-old">DE $10</span>
+          <span class="price-free">Por $0</span>
+        </div>
+      </div>
+      <img src="https://i.postimg.cc/B68gZFCg/3.jpg" alt="Los 10 Mandamientos" class="bonus-img">
+    </div>
+
+    <!-- Bono 2 -->
+    <div class="bonus-card">
+      <div class="bonus-card__text">
+        <p class="bonus-badge">🎁 BONO 2</p>
+        <h3>Los Milagros de Jesús</h3>
+        <p>Explora cada milagro realizado por el Señor: sanidades, prodigios y señales que siguen impactando vidas.
+           Incluye contexto bíblico, reflexión y lección espiritual.</p>
+        <div class="price-line">
+          <span class="price-old">DE $10</span>
+          <span class="price-free">Por $0</span>
+        </div>
+      </div>
+      <img src="https://i.postimg.cc/tTLzsgr5/4.jpg" alt="Los Milagros de Jesús" class="bonus-img">
+    </div>
+
+    <!-- Bono 3 -->
+    <div class="bonus-card">
+      <div class="bonus-card__text">
+        <p class="bonus-badge">🎁 BONO 3</p>
+        <h3>Historias Bíblicas para toda la familia</h3>
+        <p>Una colección visual y resumida de las historias más poderosas del Antiguo y Nuevo Testamento,
+           ideal para enseñar a niños y adultos en casa o en la iglesia.</p>
+        <div class="price-line">
+          <span class="price-old">DE $10</span>
+          <span class="price-free">Por $0</span>
+        </div>
+      </div>
+      <img src="https://i.postimg.cc/tT15R6zY/2.jpg" alt="Historias Bíblicas" class="bonus-img">
+    </div>
+
+    <!-- Bono 4 -->
+    <div class="bonus-card">
+      <div class="bonus-card__text">
+        <p class="bonus-badge">🎁 BONO 4</p>
+        <h3>Devocionales de Poder: 30 días para profundizar tu fe</h3>
+        <p>Una serie de devocionales con reflexiones, versículos clave y oraciones para fortalecer
+           tu conexión diaria con Dios.</p>
+        <div class="price-line">
+          <span class="price-old">DE $10</span>
+          <span class="price-free">Por $0</span>
+        </div>
+      </div>
+      <img src="https://i.postimg.cc/TPN0X0nT/1.jpg" alt="Devocionales de Poder" class="bonus-img">
+    </div>
+
+    <!-- Bono 5 -->
+    <div class="bonus-card">
+      <div class="bonus-card__text">
+        <p class="bonus-badge">🎁 BONO 5</p>
+        <h3>Manual de Interpretación Bíblica para Principiantes</h3>
+        <p>Una guía clara y práctica que te enseñará cómo interpretar correctamente los textos bíblicos,
+           evitar errores comunes y aplicar los principios de hermenéutica de forma sencilla.
+           Ideal para quienes desean profundizar en la comprensión del mensaje divino con responsabilidad y revelación.</p>
+        <div class="price-line">
+          <span class="price-old">DE $10</span>
+          <span class="price-free">Por $0</span>
+        </div>
+      </div>
+      <img src="https://i.postimg.cc/3RPZkwSM/5.jpg" alt="Manual de Interpretación Bíblica" class="bonus-img">
+    </div>
+
+    <div class="total-val">
+      <p class="big">🎉 ¡Todo esto valorado en más de <span class="struck">$49 USD</span>…</p>
+      <p>
+        ¡Aprovecha esta oportunidad divina para profundizar en la Palabra con sabiduría y entendimiento visual!
+        totalmente <span class="gratis">GRATIS</span> solo por tiempo limitado!
+      </p>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta">QUIERO LOS BONOS</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════ FRUSTRACIÓN ══ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center-block">
+      <h2>¿Te has sentido <span class="gold">perdido</span> al leer la Biblia?</h2>
+      <div class="divider" style="margin-bottom:24px;"></div>
+      <p>
+        Muchos creyentes luchan con la falta de disciplina y claridad. Intentan leer la Biblia
+        pero se frustran por no saber cómo entenderla o aplicarla. CÓDIGO DIVINO es la guía visual
+        que te toma de la mano y te acompaña a través de cada etapa del conocimiento bíblico.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════ SOCIAL PROOF ══ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="text-center-block">
+      <h2>Más de <span class="gold">4.000 cristianos</span> ya están transformando<br>su estudio bíblico con nosotros.</h2>
+      <div class="divider" style="margin-bottom:24px;"></div>
+      <p>Testimonios reales de personas que ya viven una nueva experiencia espiritual gracias a este material.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════ PRECIO ══ -->
+<section class="section">
+  <div class="container">
+    <div class="pricing-box">
+      <img src="https://i.postimg.cc/7YqqzL8s/TODOS-OS-LIVROS.jpg" alt="Código Divino – Todos los libros">
+
+      <p class="pricing-box__eyebrow">PRECIO ESPECIAL DE LANZAMIENTO</p>
+      <p class="pricing-box__headline">¡Llévate TODO esto por solo</p>
+      <div class="pricing-box__price">$9,90 USD</div>
+      <p class="pricing-box__note">(Puedes pagar en tu moneda local)</p>
+
+      <ul class="pricing-list">
+        <li>✅ 170 Bosquejos del Libro de Josué</li>
+        <li>✅ Éxodo – Versículo por Versículo</li>
+        <li>✅ Génesis – Versículo por Versículo</li>
+        <li>✅ Levítico – Versículo por Versículo</li>
+        <li>✅ 30 Días de Oración</li>
+        <li>🎁 BONO 1: Los 10 Mandamientos</li>
+        <li>🎁 BONO 2: Los Milagros de Jesús</li>
+        <li>🎁 BONO 3: Historias Bíblicas para toda la familia</li>
+        <li>🎁 BONO 4: Devocionales de Poder</li>
+        <li>🎁 BONO 5: Manual de Interpretación Bíblica para Principiantes</li>
+      </ul>
+
+      <div class="pricing-meta">
+        <span>🔒 Acceso seguro y 100% digital</span>
+        <span>📱 Compatible con cualquier dispositivo</span>
+      </div>
+
+      <div style="margin:18px 0;">
+        <span class="badge-pill badge-red">⏰ OFERTA LIMITADA</span>
+        <span class="badge-pill badge-gold">Últimos cupos disponibles</span>
+      </div>
+
+      <div class="cta-wrap" style="padding-top:14px;">
+        <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta">QUIERO EL CÓDIGO DIVINO</a>
+      </div>
+
+      <p class="delivery-note">📩 Entrega inmediata al correo electrónico</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════ GARANTÍA ══ -->
+<section class="section section--alt2">
+  <div class="container">
+    <div class="guarantee-wrap">
+      <div class="guarantee-seal">
+        <img src="https://i.postimg.cc/7hPDFx4k/SELO-GARANTIA.jpg" alt="Garantía Incondicional de 7 Días">
+      </div>
+      <div class="guarantee-text">
+        <p><strong>¿Aún tienes dudas? Tranquilo, tu compra está 100% protegida.</strong></p>
+        <p>
+          Si por cualquier motivo el contenido que recibes no cumple con lo prometido, tienes hasta
+          <strong>(7 días)</strong> para solicitar el reembolso <strong>(completo)</strong>,
+          sin preguntas ni complicaciones.
+        </p>
+        <p>
+          Recuerda que tu acceso es <strong>(de por vida)</strong>, y constantemente añadimos
+          nuevos materiales diseñados para fortalecer tu fe, tu ministerio y tu enseñanza en la Iglesia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════ FAQ ══ -->
+<section class="section">
+  <div class="container" style="max-width:820px;">
+    <div class="section__head">
+      <h2 class="section__title gold">❓ Preguntas Frecuentes (FAQ)</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        1. ¿Cómo recibiré el material después de la compra?
+      </div>
+      <div class="faq-a">
+        <p>Una vez confirmado el pago, recibirás un correo electrónico con el acceso inmediato a todo
+           el contenido digital. No necesitas esperar ni pagar envío. Todo es 100% online y accesible
+           desde cualquier dispositivo.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        2. ¿Y si el material no es lo que esperaba?
+      </div>
+      <div class="faq-a">
+        <p>No te preocupes. Tienes 7 días de garantía incondicional. Si el contenido no cumple tus
+           expectativas, puedes solicitar tu reembolso total sin complicaciones.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        3. ¿Necesito tener conocimientos previos de la Biblia para aprovechar el contenido?
+      </div>
+      <div class="faq-a">
+        <p>¡Para nada! CÓDIGO DIVINO fue diseñado para todos: nuevos creyentes, estudiantes, líderes,
+           padres o pastores. El lenguaje es claro, práctico y accesible.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        4. ¿Por qué es tan económico? ¿Es un producto confiable?
+      </div>
+      <div class="faq-a">
+        <p>Queremos que miles de personas tengan acceso a este estudio sin barreras. El bajo precio no
+           refleja baja calidad, sino una misión: facilitar el aprendizaje bíblico a todo cristiano
+           comprometido. Más de 4.000 personas ya han confiado en nosotros.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        5. ¿Puedo pagar en mi moneda local?
+      </div>
+      <div class="faq-a">
+        <p>Sí. Aunque el precio esté en USD, al momento de la compra podrás pagar automáticamente en
+           tu moneda local, usando tarjeta de crédito, débito o billetera digital de forma segura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
