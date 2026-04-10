@@ -20,9 +20,9 @@
       --green:       #2E7D32;
       --green-mid:   #388E3C;
       --green-dark:  #1B5E20;
-      --bg:          #FAF3E0;
-      --bg2:         #F0E4C8;
-      --bg3:         #3B2210;
+      --bg:          #FFFFFF;
+      --bg2:         #FAF3E0;
+      --bg3:         #F0E4C8;
       --white:       #2A1A0E;
       --muted:       #3B2210;
     }
@@ -190,14 +190,8 @@
     .section { padding: 86px 24px; }
     .section--alt { background: var(--bg2); }
     .section--alt2 { background: var(--bg3); }
-    .section--alt2 .section__title,
-    .section--alt2 .bonus-intro,
-    .section--alt2 .total-val,
-    .section--alt2 .total-val p,
-    .section--alt2 .total-val .big,
-    .section--alt2 .guarantee-text p { color: #F5ECD7; }
     .section--alt2 .divider {
-      background: linear-gradient(90deg, transparent, #D4A017, transparent);
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .section__head {
@@ -342,7 +336,7 @@
     /* ── BONUSES ───────────────────────────────── */
     .bonus-intro {
       font-size: 1.04rem;
-      color: var(--muted);
+      color: #3B2210;
       max-width: 720px;
       margin: 0 auto;
       line-height: 1.8;
@@ -576,7 +570,7 @@
       font-family: 'Cinzel', serif;
       font-size: clamp(1.2rem, 3vw, 1.8rem);
       font-weight: 700;
-      color: #fff;
+      color: #3B2210;
       line-height: 1.4;
     }
 
@@ -586,7 +580,7 @@
     .guarantee-bottom p {
       font-size: 1rem;
       line-height: 1.85;
-      color: #fff;
+      color: #3B2210;
       margin-bottom: 14px;
     }
 
