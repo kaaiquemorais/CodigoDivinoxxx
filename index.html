@@ -2,27 +2,28 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Código Divino – Comprende la Biblia de Principio a Fin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { touch-action: pan-x pan-y; }
 
     :root {
-      --gold:        #D4AF37;
-      --gold-light:  #F5D870;
-      --gold-mid:    #C9A84C;
-      --gold-dark:   #8B6914;
-      --green:       #4ADE80;
-      --green-mid:   #22C55E;
-      --green-dark:  #16A34A;
-      --bg:          #080810;
-      --bg2:         #0E0E1A;
-      --bg3:         #13131F;
-      --white:       #F5F3EE;
-      --muted:       rgba(245,243,238,0.65);
+      --gold:        #B8860B;
+      --gold-light:  #D4A017;
+      --gold-mid:    #A0720A;
+      --gold-dark:   #7A5508;
+      --green:       #2E7D32;
+      --green-mid:   #388E3C;
+      --green-dark:  #1B5E20;
+      --bg:          #FAF3E0;
+      --bg2:         #F0E4C8;
+      --bg3:         #3B2210;
+      --white:       #2A1A0E;
+      --muted:       rgba(42,26,14,0.62);
     }
 
     html { scroll-behavior: smooth; }
@@ -32,6 +33,7 @@
       background: var(--bg);
       color: var(--white);
       overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
     }
 
     /* ── UTILITIES ─────────────────────────────── */
@@ -119,9 +121,9 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(6,2,0,0.28) 0%,
-        rgba(12,5,0,0.18) 40%,
-        rgba(6,2,0,0.38) 100%
+        rgba(30,10,0,0.30) 0%,
+        rgba(20,8,0,0.18) 45%,
+        rgba(30,10,0,0.42) 100%
       );
       z-index: 1;
     }
@@ -140,7 +142,7 @@
       line-height: 1.05;
       white-space: nowrap;
       margin-bottom: 22px;
-      background: linear-gradient(135deg, #C9A030, #FFD700, #F0D060, #D4AF37, #C9A030);
+      background: linear-gradient(135deg, #D4A017, #FFD700, #F0D060, #B8860B, #D4A017);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -171,7 +173,7 @@
       max-width: 680px;
       display: block;
       margin: 0 auto 36px;
-      filter: drop-shadow(0 24px 60px rgba(212,175,55,0.25));
+      object-fit: contain;
     }
 
     .hero__desc {
@@ -186,6 +188,15 @@
     .section { padding: 86px 24px; }
     .section--alt { background: var(--bg2); }
     .section--alt2 { background: var(--bg3); }
+    .section--alt2 .section__title,
+    .section--alt2 .bonus-intro,
+    .section--alt2 .total-val,
+    .section--alt2 .total-val p,
+    .section--alt2 .total-val .big,
+    .section--alt2 .guarantee-text p { color: #F5ECD7; }
+    .section--alt2 .divider {
+      background: linear-gradient(90deg, transparent, #D4A017, transparent);
+    }
 
     .section__head {
       text-align: center;
@@ -201,8 +212,8 @@
 
     /* ── FOR-YOU BOX ───────────────────────────── */
     .for-you {
-      background: linear-gradient(135deg, rgba(212,175,55,0.09), rgba(212,175,55,0.03));
-      border: 1px solid rgba(212,175,55,0.32);
+      background: linear-gradient(135deg, rgba(139,90,43,0.10), rgba(139,90,43,0.04));
+      border: 1px solid rgba(139,90,43,0.30);
       border-radius: 20px;
       padding: 42px 44px;
       max-width: 720px;
@@ -212,9 +223,10 @@
     .for-you__title {
       font-family: 'Cinzel', serif;
       color: var(--gold);
-      font-size: 1.25rem;
+      font-size: clamp(0.85rem, 3.5vw, 1.25rem);
       text-align: center;
       margin-bottom: 28px;
+      white-space: nowrap;
     }
 
     .for-you__item {
@@ -237,15 +249,15 @@
     }
 
     .book-card {
-      background: transparent;
-      border: 1px solid rgba(212,175,55,0.28);
+      background: #fff;
+      border: 1px solid rgba(139,90,43,0.22);
       border-radius: 18px;
       overflow: hidden;
       transition: transform 0.32s ease, box-shadow 0.32s ease;
     }
     .book-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 22px 55px rgba(212,175,55,0.2);
+      box-shadow: 0 22px 55px rgba(139,90,43,0.18);
     }
     .book-card img {
       width: 100%;
@@ -267,8 +279,8 @@
     }
 
     .adv-card {
-      background: linear-gradient(135deg, rgba(212,175,55,0.09), rgba(8,8,16,0.85));
-      border: 1px solid rgba(212,175,55,0.25);
+      background: linear-gradient(135deg, rgba(139,90,43,0.08), rgba(250,243,224,0.9));
+      border: 1px solid rgba(139,90,43,0.22);
       border-radius: 18px;
       padding: 32px 28px;
       display: flex;
@@ -278,7 +290,7 @@
     }
     .adv-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 38px rgba(212,175,55,0.18);
+      box-shadow: 0 14px 38px rgba(139,90,43,0.18);
     }
     .adv-card__icon { font-size: 1.7rem; flex-shrink: 0; margin-top: 2px; }
     .adv-card h3 {
@@ -299,15 +311,15 @@
     }
 
     .who-card {
-      background: transparent;
-      border: 1px solid rgba(212,175,55,0.26);
+      background: #fff;
+      border: 1px solid rgba(139,90,43,0.22);
       border-radius: 18px;
       overflow: hidden;
       transition: transform 0.32s, box-shadow 0.32s;
     }
     .who-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 22px 50px rgba(212,175,55,0.18);
+      box-shadow: 0 22px 50px rgba(139,90,43,0.18);
     }
     .who-card img {
       width: 100%;
@@ -335,8 +347,8 @@
     }
 
     .bonus-card {
-      background: linear-gradient(135deg, rgba(212,175,55,0.09), rgba(212,175,55,0.02));
-      border: 1px solid rgba(212,175,55,0.32);
+      background: rgba(255,248,235,0.85);
+      border: 1px solid rgba(139,90,43,0.28);
       border-radius: 20px;
       overflow: hidden;
       margin-bottom: 24px;
@@ -349,7 +361,7 @@
     }
     .bonus-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 18px 44px rgba(212,175,55,0.18);
+      box-shadow: 0 18px 44px rgba(139,90,43,0.2);
     }
     .bonus-card__text {
       padding: 28px 32px 32px;
@@ -364,25 +376,31 @@
     }
     .bonus-card h3 {
       font-family: 'Cinzel', serif;
-      color: var(--white);
+      color: #3B2210;
       font-size: 1.08rem;
       margin-bottom: 12px;
       line-height: 1.4;
     }
     .bonus-card p {
       font-size: 0.91rem;
-      color: var(--muted);
+      color: rgba(59,34,16,0.72);
       line-height: 1.72;
       margin-bottom: 16px;
     }
     .price-line { font-size: 0.95rem; }
     .price-old {
-      color: #F87171;
+      font-family: 'Poppins', sans-serif;
+      color: #C0392B;
       text-decoration: line-through;
       margin-right: 10px;
       font-weight: 600;
     }
-    .price-free { color: var(--green-mid); font-weight: 700; font-size: 1.08rem; }
+    .price-free {
+      font-family: 'Poppins', sans-serif;
+      color: var(--green-mid);
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
 
     .bonus-img {
       width: 100%;
@@ -430,8 +448,8 @@
 
     /* ── PRICING BOX ───────────────────────────── */
     .pricing-box {
-      background: linear-gradient(145deg, rgba(212,175,55,0.11), rgba(212,175,55,0.03));
-      border: 2px solid rgba(212,175,55,0.42);
+      background: linear-gradient(145deg, rgba(139,90,43,0.10), rgba(255,248,235,0.95));
+      border: 2px solid rgba(139,90,43,0.35);
       border-radius: 28px;
       padding: 58px 48px;
       max-width: 820px;
@@ -484,7 +502,7 @@
     }
     .pricing-list li {
       padding: 11px 0;
-      border-bottom: 1px solid rgba(212,175,55,0.12);
+      border-bottom: 1px solid rgba(139,90,43,0.15);
       font-size: 0.95rem;
       color: rgba(255,255,255,0.85);
       line-height: 1.55;
@@ -531,14 +549,15 @@
       max-width: 820px;
       margin: 0 auto;
       display: flex;
+      flex-direction: row;
       align-items: center;
-      gap: 52px;
-      flex-wrap: wrap;
+      gap: 44px;
+      flex-wrap: nowrap;
     }
 
     .guarantee-seal {
       flex-shrink: 0;
-      width: 180px;
+      width: 160px;
     }
     .guarantee-seal img {
       width: 100%;
@@ -549,13 +568,13 @@
     .guarantee-text p {
       font-size: 1rem;
       line-height: 1.85;
-      color: rgba(255,255,255,0.85);
+      color: #F5ECD7;
       margin-bottom: 14px;
     }
 
     /* ── FAQ ───────────────────────────────────── */
     .faq-item {
-      border: 1px solid rgba(212,175,55,0.22);
+      border: 1px solid rgba(139,90,43,0.22);
       border-radius: 14px;
       margin-bottom: 16px;
       overflow: hidden;
@@ -563,10 +582,10 @@
 
     .faq-q {
       padding: 20px 26px;
-      background: rgba(212,175,55,0.07);
+      background: rgba(139,90,43,0.08);
       font-weight: 700;
       font-size: 0.98rem;
-      color: var(--gold-light);
+      color: #5C3A1E;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
@@ -575,7 +594,7 @@
       gap: 16px;
       transition: background 0.25s;
     }
-    .faq-q:hover { background: rgba(212,175,55,0.12); }
+    .faq-q:hover { background: rgba(139,90,43,0.14); }
     .faq-q::after {
       content: '+';
       font-size: 1.6rem;
@@ -594,9 +613,11 @@
 
     /* ── RESPONSIVE ────────────────────────────── */
     @media (max-width: 720px) {
+      .hero__book { max-width: 75%; }
       .bonus-card { flex-direction: column; }
       .bonus-img  { width: 100%; height: 210px; }
-      .guarantee-wrap { justify-content: center; text-align: center; }
+      .guarantee-wrap { gap: 24px; }
+      .guarantee-seal { width: 120px; }
       .pricing-box { padding: 36px 22px; }
       .for-you { padding: 32px 24px; }
     }
