@@ -30,6 +30,26 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { touch-action: pan-x pan-y; }
 
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img {
+      pointer-events: none;
+      -webkit-user-drag: none;
+      user-drag: none;
+    }
+
+    .cta {
+      -webkit-user-select: none;
+      user-select: none;
+      pointer-events: auto;
+    }
+
     :root {
       --gold:        #B8860B;
       --gold-light:  #D4A017;
