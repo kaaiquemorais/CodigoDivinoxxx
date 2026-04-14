@@ -15,18 +15,13 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1257561569864234');
-  fbq('init', '1815891142704639');
+  fbq('init', '1653113815721315');
   fbq('track', 'ViewContent');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1257561569864234&ev=ViewContent&noscript=1"
-  /></noscript>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1815891142704639&ev=ViewContent&noscript=1"
+  src="https://www.facebook.com/tr?id=1653113815721315&ev=ViewContent&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@600;700&family=Raleway:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -35,10 +30,6 @@
     html, body { touch-action: pan-x pan-y; }
 
     body {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
       -webkit-touch-callout: none;
     }
 
@@ -49,8 +40,6 @@
     }
 
     .cta {
-      -webkit-user-select: none;
-      user-select: none;
       pointer-events: auto;
     }
 
@@ -198,6 +187,9 @@
       display: block;
       margin: 0 auto 36px;
       object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 230, 50, 0.55))
+              drop-shadow(0 0 28px rgba(255, 210, 0, 0.30))
+              drop-shadow(0 0 55px rgba(255, 200, 0, 0.15));
     }
 
     .hero__desc {
@@ -624,7 +616,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      user-select: none;
       gap: 16px;
       transition: background 0.25s;
     }
@@ -645,15 +636,54 @@
     }
     .faq-a p { font-size: 0.94rem; color: var(--muted); line-height: 1.85; }
 
+    /* ── SEGUNDA DOBRA MOBILE ───────────────────── */
+    .hero-mobile-info {
+      display: none;
+    }
+    @media (max-width: 720px) {
+      .hero-mobile-info {
+        display: block;
+        background: #1a0a00;
+        padding: 36px 20px 40px;
+        text-align: center;
+      }
+      .hero-mobile-info .hero__title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.8rem, 9vw, 2.4rem);
+        font-weight: 900;
+        letter-spacing: 5px;
+        background: linear-gradient(90deg, #c8922a, #f5d16a, #e8a830, #f5d16a, #c8922a);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 14px;
+      }
+      .hero-mobile-info .hero__sub {
+        font-family: 'Raleway', sans-serif;
+        font-size: clamp(0.6rem, 3vw, 0.82rem);
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: rgba(255,255,255,0.75);
+        text-transform: uppercase;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+      .hero-mobile-info .hero__desc {
+        font-size: 0.84rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.75;
+        margin-bottom: 28px;
+      }
+    }
+
     /* ── RESPONSIVE ────────────────────────────── */
     @media (max-width: 720px) {
       .mobile-break { display: block; }
-      /* Hero */
-      .hero { padding: 60px 16px 50px; }
-      .hero__book { max-width: 75%; }
-      .hero__title { white-space: normal; font-size: clamp(1.5rem, 8vw, 2.2rem); letter-spacing: 4px; }
-      .hero__sub { font-size: clamp(0.6rem, 2.8vw, 0.78rem); letter-spacing: 1.5px; }
-      .hero__desc { font-size: 0.82rem; }
+      /* Hero — só imagem no mobile */
+      .hero { padding: 20px 16px; min-height: unset; }
+      .hero__text-block { display: none; }
+      .hero__book { max-width: 100%; margin-bottom: 0; }
 
       /* CTA buttons */
       .cta {
@@ -696,11 +726,13 @@
   <div class="hero__bg"></div>
   <div class="hero__overlay"></div>
   <div class="hero__content">
-    <h1 class="hero__title">CÓDIGO DIVINO</h1>
-    <p class="hero__sub">
-      COMPRENDE LA BIBLIA DE PRINCIPIO A FIN CON<br>
-      CLARIDAD, PROFUNDIDAD Y PODER ESPIRITUAL
-    </p>
+    <div class="hero__text-block">
+      <h1 class="hero__title">CÓDIGO DIVINO</h1>
+      <p class="hero__sub">
+        COMPRENDE LA BIBLIA DE PRINCIPIO A FIN CON<br>
+        CLARIDAD, PROFUNDIDAD Y PODER ESPIRITUAL
+      </p>
+    </div>
 
     <img
       src="https://i.postimg.cc/dQ9GrnSx/5-REGALOS-EXCLUSIVOS.png"
@@ -708,16 +740,36 @@
       class="hero__book"
     >
 
-    <p class="hero__desc">
-      Un estudio visual y didáctico que revela los misterios y enseñanzas de toda la Biblia
-      de una manera clara, organizada y accesible para todos
-    </p>
+    <div class="hero__text-block">
+      <p class="hero__desc">
+        Un estudio visual y didáctico que revela los misterios y enseñanzas de toda la Biblia
+        de una manera clara, organizada y accesible para todos
+      </p>
 
+      <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta cta--sm">
+        QUIERO COMPRENDER LA BIBLIA
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SEGUNDA DOBRA (só mobile) ══ -->
+<div class="hero-mobile-info">
+  <h1 class="hero__title">CÓDIGO DIVINO</h1>
+  <p class="hero__sub">
+    COMPRENDE LA BIBLIA DE PRINCIPIO A FIN CON<br>
+    CLARIDAD, PROFUNDIDAD Y PODER ESPIRITUAL
+  </p>
+  <p class="hero__desc">
+    Un estudio visual y didáctico que revela los misterios y enseñanzas de toda la Biblia
+    de una manera clara, organizada y accesible para todos
+  </p>
+  <div class="cta-wrap">
     <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta cta--sm">
       QUIERO COMPRENDER LA BIBLIA
     </a>
   </div>
-</section>
+</div>
 
 
 <!-- ═════════════════════════════════ QUÉ ES ══ -->
