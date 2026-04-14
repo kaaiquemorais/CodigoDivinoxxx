@@ -115,89 +115,22 @@
 
     /* ── HERO ──────────────────────────────────── */
     .hero {
-      position: relative;
-      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      padding: 100px 24px 80px;
+      background: #000;
+      padding: 0 0 40px;
     }
 
-    .hero__bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://i.postimg.cc/xqrb2xfX/hero-background.png');
-      background-size: cover;
-      background-position: center;
-      z-index: 0;
-    }
-
-    .hero__overlay {
-      position: absolute;
-      inset: 0;
-      background: none;
-      z-index: 1;
-    }
-
-    .hero__content {
-      position: relative;
-      z-index: 2;
-      max-width: 920px;
-    }
-
-    .hero__title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.4rem, 4vw, 2.8rem);
-      font-weight: 900;
-      letter-spacing: 6px;
-      line-height: 1.05;
-      white-space: nowrap;
-      margin-bottom: 14px;
-      background: linear-gradient(135deg, #D4A017, #FFD700, #F0D060, #B8860B, #D4A017);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shine 5s linear infinite;
-      text-shadow: none;
-      filter: drop-shadow(0 0 28px rgba(212,175,55,0.6));
-    }
-
-    @keyframes shine {
-      0%   { background-position: 0% center; }
-      100% { background-position: 200% center; }
-    }
-
-    .hero__sub {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(0.65rem, 1.6vw, 0.88rem);
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #fff;
-      line-height: 1.6;
-      margin-bottom: 22px;
-    }
-
-    .hero__book {
+    .hero__img {
       width: 100%;
-      max-width: 680px;
       display: block;
-      margin: 0 auto 36px;
       object-fit: contain;
-      filter: drop-shadow(0 0 10px rgba(255, 230, 50, 0.55))
-              drop-shadow(0 0 28px rgba(255, 210, 0, 0.30))
-              drop-shadow(0 0 55px rgba(255, 200, 0, 0.15));
     }
 
-    .hero__desc {
-      font-size: clamp(0.78rem, 1.4vw, 0.95rem);
-      color: rgba(255,255,255,0.88);
-      line-height: 1.75;
-      max-width: 600px;
-      margin: 0 auto 28px;
+    .hero__cta-wrap {
+      margin-top: 32px;
+      text-align: center;
     }
 
     /* ── SECTION SHARED ────────────────────────── */
@@ -636,54 +569,11 @@
     }
     .faq-a p { font-size: 0.94rem; color: var(--muted); line-height: 1.85; }
 
-    /* ── SEGUNDA DOBRA MOBILE ───────────────────── */
-    .hero-mobile-info {
-      display: none;
-    }
-    @media (max-width: 720px) {
-      .hero-mobile-info {
-        display: block;
-        background: #1a0a00;
-        padding: 36px 20px 40px;
-        text-align: center;
-      }
-      .hero-mobile-info .hero__title {
-        font-family: 'Cormorant Garamond', serif;
-        font-size: clamp(1.8rem, 9vw, 2.4rem);
-        font-weight: 900;
-        letter-spacing: 5px;
-        background: linear-gradient(90deg, #c8922a, #f5d16a, #e8a830, #f5d16a, #c8922a);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 14px;
-      }
-      .hero-mobile-info .hero__sub {
-        font-family: 'Raleway', sans-serif;
-        font-size: clamp(0.6rem, 3vw, 0.82rem);
-        font-weight: 700;
-        letter-spacing: 2px;
-        color: rgba(255,255,255,0.75);
-        text-transform: uppercase;
-        line-height: 1.6;
-        margin-bottom: 18px;
-      }
-      .hero-mobile-info .hero__desc {
-        font-size: 0.84rem;
-        color: rgba(255,255,255,0.85);
-        line-height: 1.75;
-        margin-bottom: 28px;
-      }
-    }
-
     /* ── RESPONSIVE ────────────────────────────── */
     @media (max-width: 720px) {
       .mobile-break { display: block; }
-      /* Hero — só imagem no mobile */
-      .hero { padding: 20px 16px; min-height: unset; }
-      .hero__text-block { display: none; }
-      .hero__book { max-width: 100%; margin-bottom: 0; }
+      /* Hero */
+      .hero { padding: 0 0 32px; }
 
       /* CTA buttons */
       .cta {
@@ -723,53 +613,17 @@
 
 <!-- ═══════════════════════════════════════ HERO ══ -->
 <section class="hero">
-  <div class="hero__bg"></div>
-  <div class="hero__overlay"></div>
-  <div class="hero__content">
-    <div class="hero__text-block">
-      <h1 class="hero__title">CÓDIGO DIVINO</h1>
-      <p class="hero__sub">
-        COMPRENDE LA BIBLIA DE PRINCIPIO A FIN CON<br>
-        CLARIDAD, PROFUNDIDAD Y PODER ESPIRITUAL
-      </p>
-    </div>
-
-    <img
-      src="https://i.postimg.cc/dQ9GrnSx/5-REGALOS-EXCLUSIVOS.png"
-      alt="Código Divino – Todos los libros"
-      class="hero__book"
-    >
-
-    <div class="hero__text-block">
-      <p class="hero__desc">
-        Un estudio visual y didáctico que revela los misterios y enseñanzas de toda la Biblia
-        de una manera clara, organizada y accesible para todos
-      </p>
-
-      <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta cta--sm">
-        QUIERO COMPRENDER LA BIBLIA
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ SEGUNDA DOBRA (só mobile) ══ -->
-<div class="hero-mobile-info">
-  <h1 class="hero__title">CÓDIGO DIVINO</h1>
-  <p class="hero__sub">
-    COMPRENDE LA BIBLIA DE PRINCIPIO A FIN CON<br>
-    CLARIDAD, PROFUNDIDAD Y PODER ESPIRITUAL
-  </p>
-  <p class="hero__desc">
-    Un estudio visual y didáctico que revela los misterios y enseñanzas de toda la Biblia
-    de una manera clara, organizada y accesible para todos
-  </p>
-  <div class="cta-wrap">
+  <img
+    src="https://i.postimg.cc/G2MZDQ2S/retire-o-cta-202604141405.jpg"
+    alt="Código Divino"
+    class="hero__img"
+  >
+  <div class="hero__cta-wrap">
     <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta cta--sm">
       QUIERO COMPRENDER LA BIBLIA
     </a>
   </div>
-</div>
+</section>
 
 
 <!-- ═════════════════════════════════ QUÉ ES ══ -->
