@@ -5,26 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Código Divino – Comprende la Biblia de Principio a Fin</title>
   <link rel="icon" type="image/png" href="https://i.postimg.cc/76XzSZYc/CODIGO-DIVINO.png">
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1653113815721315');
-  fbq('track', 'ViewContent');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1653113815721315&ev=ViewContent&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
+  <!-- Preconnect critical origins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@600;700&family=Raleway:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
+  <!-- Preload LCP images -->
+  <link rel="preload" as="image" href="https://i.postimg.cc/G2MZDQ2S/retire-o-cta-202604141405.jpg" media="(max-width:720px)">
+  <link rel="preload" as="image" href="https://i.postimg.cc/xqrb2xfX/hero-background.png" media="(min-width:721px)">
+  <link rel="preload" as="image" href="https://i.postimg.cc/dQ9GrnSx/5-REGALOS-EXCLUSIVOS.png" media="(min-width:721px)">
+  <!-- Fonts: only used families and weights -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:wght@700&family=Raleway:wght@400;600;700;900&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { touch-action: pan-x pan-y; }
@@ -718,6 +708,9 @@
       src="https://i.postimg.cc/dQ9GrnSx/5-REGALOS-EXCLUSIVOS.png"
       alt="Código Divino – Todos los libros"
       class="hero__book"
+      loading="eager"
+      fetchpriority="high"
+      width="680" height="510"
     >
 
     <p class="hero__desc">
@@ -737,6 +730,9 @@
     src="https://i.postimg.cc/G2MZDQ2S/retire-o-cta-202604141405.jpg"
     alt="Código Divino"
     class="hero__img"
+    loading="eager"
+    fetchpriority="high"
+    width="1080" height="1920"
   >
   <div class="hero__cta-wrap">
     <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="cta cta--sm">
@@ -790,35 +786,35 @@
 
     <div class="book-grid">
       <div class="book-card">
-        <img src="https://i.postimg.cc/LX3gk6v1/1.png" alt="170 Bosquejos del Libro de Josué">
+        <img src="https://i.postimg.cc/LX3gk6v1/1.png" alt="170 Bosquejos del Libro de Josué" loading="lazy">
         <p class="book-card__desc">
           Resumenes temáticos con enseñanzas, aplicaciones y oraciones que te guiarán
           por todo el libro de Josué de forma clara y visual.
         </p>
       </div>
       <div class="book-card">
-        <img src="https://i.postimg.cc/hP5z1Y8M/2.png" alt="30 Días de Oración">
+        <img src="https://i.postimg.cc/hP5z1Y8M/2.png" alt="30 Días de Oración" loading="lazy">
         <p class="book-card__desc">
           Una guía devocional para fortalecer tu vida de oración durante 30 días,
           basada en los cinco primeros libros de la Biblia.
         </p>
       </div>
       <div class="book-card">
-        <img src="https://i.postimg.cc/VvNvj9Jy/3.png" alt="Génesis Versículo por Versículo">
+        <img src="https://i.postimg.cc/VvNvj9Jy/3.png" alt="Génesis Versículo por Versículo" loading="lazy">
         <p class="book-card__desc">
           Estudio profundo, práctico y espiritual de cada versículo del libro de Génesis,
           con reflexiones y aplicaciones diarias.
         </p>
       </div>
       <div class="book-card">
-        <img src="https://i.postimg.cc/cHF44KXK/4.png" alt="Éxodo">
+        <img src="https://i.postimg.cc/cHF44KXK/4.png" alt="Éxodo" loading="lazy">
         <p class="book-card__desc">
           Comprensión clara y edificante del mensaje de Éxodo,
           explicado de forma accesible para todo lector.
         </p>
       </div>
       <div class="book-card">
-        <img src="https://i.postimg.cc/SN2Nkx8K/5.png" alt="Levítico">
+        <img src="https://i.postimg.cc/SN2Nkx8K/5.png" alt="Levítico" loading="lazy">
         <p class="book-card__desc">
           Guía espiritual para entender el propósito de las leyes, ofrendas y enseñanzas
           de Levítico, aplicadas a la vida moderna.
@@ -887,7 +883,7 @@
       <div class="who-card">
         <img
           src="https://i.postimg.cc/15w04s1B/Captura-de-tela-2026-04-10-025333.png"
-          alt="Profesores y Pastores">
+          alt="Profesores y Pastores" loading="lazy">
         <div class="who-card__body">
           <h3>Profesores y Pastores</h3>
           <p>Material perfecto para clases, prédicas y discipulados.</p>
@@ -896,7 +892,7 @@
       <div class="who-card">
         <img
           src="https://i.postimg.cc/Nfc9JXZM/CODIGO-DIVINO-(4).png"
-          alt="Estudiantes y nuevos creyentes">
+          alt="Estudiantes y nuevos creyentes" loading="lazy">
         <div class="who-card__body">
           <h3>Estudiantes y nuevos creyentes</h3>
           <p>Una forma sencilla y poderosa de aprender.</p>
@@ -905,7 +901,7 @@
       <div class="who-card">
         <img
           src="https://i.postimg.cc/zf63nHnG/CODIGO-DIVINO-(3).png"
-          alt="Líderes de célula o grupos pequeños">
+          alt="Líderes de célula o grupos pequeños" loading="lazy">
         <div class="who-card__body">
           <h3>Líderes de célula o grupos pequeños</h3>
           <p>Una herramienta que transforma vidas.</p>
@@ -914,7 +910,7 @@
       <div class="who-card">
         <img
           src="https://i.postimg.cc/02nQVBpL/CODIGO-DIVINO-(2).png"
-          alt="Familias">
+          alt="Familias" loading="lazy">
         <div class="who-card__body">
           <h3>Familias</h3>
           <p>Enseña a tus hijos de forma visual y memorable.</p>
@@ -943,7 +939,7 @@
 
     <!-- Bono 1 -->
     <div class="bonus-card">
-      <img src="https://i.postimg.cc/L472CF7s/3.png" alt="Los 10 Mandamientos" class="bonus-img">
+      <img src="https://i.postimg.cc/L472CF7s/3.png" alt="Los 10 Mandamientos" class="bonus-img" loading="lazy">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 1</p>
         <h3>Los 10 Mandamientos: Historia y Aplicación Espiritual</h3>
@@ -958,7 +954,7 @@
 
     <!-- Bono 2 -->
     <div class="bonus-card">
-      <img src="https://i.postimg.cc/gJjbsgH0/4.png" alt="Los Milagros de Jesús" class="bonus-img">
+      <img src="https://i.postimg.cc/gJjbsgH0/4.png" alt="Los Milagros de Jesús" class="bonus-img" loading="lazy">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 2</p>
         <h3>Los Milagros de Jesús</h3>
@@ -973,7 +969,7 @@
 
     <!-- Bono 3 -->
     <div class="bonus-card">
-      <img src="https://i.postimg.cc/hjXPvDw5/2.png" alt="Historias Bíblicas" class="bonus-img">
+      <img src="https://i.postimg.cc/hjXPvDw5/2.png" alt="Historias Bíblicas" class="bonus-img" loading="lazy">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 3</p>
         <h3>Historias Bíblicas para toda la familia</h3>
@@ -988,7 +984,7 @@
 
     <!-- Bono 4 -->
     <div class="bonus-card">
-      <img src="https://i.postimg.cc/mkFffhq4/1.png" alt="Devocionales de Poder" class="bonus-img">
+      <img src="https://i.postimg.cc/mkFffhq4/1.png" alt="Devocionales de Poder" class="bonus-img" loading="lazy">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 4</p>
         <h3>Devocionales de Poder: 30 días para profundizar tu fe</h3>
@@ -1003,7 +999,7 @@
 
     <!-- Bono 5 -->
     <div class="bonus-card">
-      <img src="https://i.postimg.cc/XqySSXh6/5.png" alt="Manual de Interpretación Bíblica" class="bonus-img">
+      <img src="https://i.postimg.cc/XqySSXh6/5.png" alt="Manual de Interpretación Bíblica" class="bonus-img" loading="lazy">
       <div class="bonus-card__text">
         <p class="bonus-badge">🎁 BONO 5</p>
         <h3>Manual de Interpretación Bíblica para Principiantes</h3>
@@ -1064,7 +1060,7 @@
 <section class="section">
   <div class="container">
     <div class="pricing-box">
-      <img src="https://i.postimg.cc/dQ9GrnSx/5-REGALOS-EXCLUSIVOS.png" alt="Código Divino – Todos los libros">
+      <img src="https://i.postimg.cc/dQ9GrnSx/5-REGALOS-EXCLUSIVOS.png" alt="Código Divino – Todos los libros" loading="lazy">
 
       <p class="pricing-box__eyebrow">PRECIO ESPECIAL DE LANZAMIENTO</p>
       <p class="pricing-box__headline">¡Llévate TODO esto por solo</p>
@@ -1114,7 +1110,7 @@
     <div class="guarantee-wrap">
       <div class="guarantee-top">
         <div class="guarantee-seal">
-          <img src="https://i.postimg.cc/TwgFCBWY/6.png" alt="Garantía Incondicional de 7 Días">
+          <img src="https://i.postimg.cc/TwgFCBWY/6.png" alt="Garantía Incondicional de 7 Días" loading="lazy">
         </div>
         <div class="guarantee-label">
           Garantía<br>Incondicional<br>de 7 Días
@@ -1205,6 +1201,23 @@
     el.parentElement.classList.toggle('open');
   }
 </script>
+
+<!-- Meta Pixel Code (deferred – does not block render) -->
+<script>
+  window.addEventListener('load', function() {
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1653113815721315');
+    fbq('track', 'ViewContent');
+  });
+</script>
+<!-- End Meta Pixel Code -->
 
 </body>
 </html>
