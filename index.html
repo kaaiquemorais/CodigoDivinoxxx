@@ -854,9 +854,9 @@
     <div class="quiz-step active" id="step1">
       <p class="quiz-q">👉 Cuando lees la Biblia, ¿qué suele pasar?</p>
       <div class="quiz-options">
-        <div class="quiz-opt" onclick="nextStep(2)">Siento que no la entiendo profundamente</div>
-        <div class="quiz-opt" onclick="nextStep(2)">Entiendo algunas partes, pero me pierdo</div>
-        <div class="quiz-opt" onclick="nextStep(2)">Leo, pero no logro aplicarla en mi vida</div>
+        <div class="quiz-opt" onclick="setProfile('new'); nextStep(2)">Siento que no la entiendo profundamente</div>
+        <div class="quiz-opt" onclick="setProfile('mid'); nextStep(2)">Entiendo algunas partes, pero me pierdo</div>
+        <div class="quiz-opt" onclick="setProfile('exp'); nextStep(2)">Leo, pero no logro aplicarla en mi vida</div>
       </div>
     </div>
 
@@ -880,23 +880,8 @@
       </div>
     </div>
 
-    <!-- Final -->
-    <div class="quiz-final" id="quiz-final">
-      <p class="quiz-final-title">👉 Independientemente de tus respuestas, hay algo claro:</p>
-      <div class="quiz-final-text">
-        <p><strong>No necesitas seguir sintiéndote perdido al leer la Biblia.</strong></p>
-        <br>
-        <p>Existe una forma simple, visual y guiada que ya está ayudando a miles de personas a entender cada capítulo, cada mensaje y cada enseñanza con claridad.</p>
-        <br>
-        <p>Ahora tienes dos opciones:</p>
-      </div>
-      <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="quiz-cta-primary">
-        SÍ, QUIERO ENTENDER LA BIBLIA AHORA
-      </a>
-      <button class="quiz-cta-secondary" onclick="closeQuiz()">
-        QUIERO VER LOS DETALLES Y LOS BONOS PRIMERO
-      </button>
-    </div>
+    <!-- Final (conteúdo inserido via JS) -->
+    <div class="quiz-final" id="quiz-final"></div>
   </div>
 </div>
 
@@ -1387,18 +1372,42 @@
     el.parentElement.classList.toggle('open');
   }
 
+  var quizProfile = 'new';
+
+  var quizMessages = {
+    new: {
+      title: '✨ Tu perfil: Comenzando desde cero',
+      body: '<p><strong>Buenas noticias: no necesitas ningún conocimiento previo.</strong></p><br><p>CÓDIGO DIVINO fue diseñado exactamente para ti. Con un método visual, claro y paso a paso, vas a entender toda la Biblia — desde Génesis hasta Apocalipsis — de forma rápida, profunda y sin complicaciones.</p><br><p>Miles de personas que nunca habían entendido la Biblia hoy la leen con gozo y claridad. Tú serás el próximo.</p>'
+    },
+    mid: {
+      title: '🔥 Tu perfil: Lector con sed de más',
+      body: '<p><strong>Ya tienes una base. Solo necesitas el método correcto.</strong></p><br><p>Con CÓDIGO DIVINO vas a conectar todos los puntos que siempre te faltaron. Vas a entender el hilo completo de la Biblia, cada libro en su contexto, y dejarás de perderte para siempre.</p><br><p>La claridad que buscabas está a un clic de distancia.</p>'
+    },
+    exp: {
+      title: '💡 Tu perfil: Conoces la Biblia, pero quieres más',
+      body: '<p><strong>Leer es una cosa. Entender y aplicar es otra.</strong></p><br><p>CÓDIGO DIVINO te da las herramientas visuales y didácticas para transformar lo que lees en sabiduría real que puedes vivir, enseñar y compartir con otros.</p><br><p>Es hora de pasar del conocimiento a la revelación.</p>'
+    }
+  };
+
+  function setProfile(p) { quizProfile = p; }
+
   function nextStep(n) {
-    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.quiz-step').forEach(function(s){ s.classList.remove('active'); });
     document.getElementById('step' + n).classList.add('active');
     for (var i = 1; i <= 3; i++) {
-      var dot = document.getElementById('p' + i);
-      dot.classList.toggle('active', i <= n);
+      document.getElementById('p' + i).classList.toggle('active', i <= n);
     }
   }
 
   function showFinal() {
-    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.quiz-step').forEach(function(s){ s.classList.remove('active'); });
     document.querySelector('.quiz-progress').style.display = 'none';
+    var m = quizMessages[quizProfile];
+    document.getElementById('quiz-final').innerHTML =
+      '<p class="quiz-final-title">' + m.title + '</p>' +
+      '<div class="quiz-final-text">' + m.body + '<br><p>Ahora tienes dos opciones:</p></div>' +
+      '<a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="quiz-cta-primary">SÍ, QUIERO ENTENDER LA BIBLIA AHORA</a>' +
+      '<button class="quiz-cta-secondary" onclick="closeQuiz()">QUIERO VER LOS DETALLES Y LOS BONOS PRIMERO</button>';
     document.getElementById('quiz-final').classList.add('active');
   }
 
@@ -1407,7 +1416,6 @@
     document.body.style.overflow = '';
   }
 
-  // Block scroll while quiz is open
   document.body.style.overflow = 'hidden';
 </script>
 
