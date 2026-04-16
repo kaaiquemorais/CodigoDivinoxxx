@@ -728,6 +728,20 @@
     margin-bottom: 28px;
   }
 
+  .quiz-books {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .quiz-books img {
+    width: calc(100% / 5 - 6px);
+    max-width: 90px;
+    object-fit: contain;
+    pointer-events: none;
+  }
+
   .quiz-progress {
     display: flex;
     justify-content: center;
@@ -850,6 +864,14 @@
 <div id="quiz-overlay">
   <div class="quiz-box">
     <div class="quiz-logo">CÓDIGO DIVINO</div>
+
+    <div class="quiz-books">
+      <img src="https://i.postimg.cc/LX3gk6v1/1.png" alt="">
+      <img src="https://i.postimg.cc/hP5z1Y8M/2.png" alt="">
+      <img src="https://i.postimg.cc/VvNvj9Jy/3.png" alt="">
+      <img src="https://i.postimg.cc/cHF44KXK/4.png" alt="">
+      <img src="https://i.postimg.cc/SN2Nkx8K/5.png" alt="">
+    </div>
 
     <div class="quiz-progress">
       <span class="active" id="p1"></span>
