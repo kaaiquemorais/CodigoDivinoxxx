@@ -826,8 +826,7 @@
     transition: opacity 0.2s;
     white-space: nowrap;
     text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
   }
   .quiz-cta-primary:hover { opacity: 0.88; }
 
@@ -847,8 +846,7 @@
     white-space: nowrap;
     width: 100%;
     text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
     transition: border-color 0.2s, background 0.2s;
   }
   .quiz-cta-secondary:hover { border-color: #D4A017; background: rgba(212,160,23,0.1); }
@@ -1435,7 +1433,7 @@
     document.getElementById('quiz-final').innerHTML =
       '<p class="quiz-final-title">' + m.title + '</p>' +
       '<div class="quiz-final-text">' + m.body + '<br><p><strong>Creyente o no, curioso o buscador:</strong> la Biblia tiene algo para ti.</p></div>' +
-      '<a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="quiz-cta-primary">SÍ, QUIERO ENTENDER LA BIBLIA AHORA</a>' +
+      '<a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="quiz-cta-primary">QUIERO ENTENDER LA BIBLIA AHORA</a>' +
       '<button class="quiz-cta-secondary" onclick="closeQuiz()">VER LO QUE INCLUYE PRIMERO</button>';
     document.getElementById('quiz-final').classList.add('active');
   }
