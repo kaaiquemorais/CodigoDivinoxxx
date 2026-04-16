@@ -692,9 +692,213 @@
       .section { padding: 60px 16px; }
       .container { padding: 0 16px; }
     }
+  /* ── QUIZ OVERLAY ─────────────────────────── */
+  #quiz-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: linear-gradient(160deg, #0d0500 0%, #1a0900 60%, #0d0500 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  #quiz-overlay.hidden { display: none; }
+
+  .quiz-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,160,23,0.25);
+    border-radius: 20px;
+    padding: 40px 36px;
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .quiz-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    background: linear-gradient(90deg, #c8922a, #f5d16a, #c8922a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 28px;
+  }
+
+  .quiz-progress {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .quiz-progress span {
+    width: 32px;
+    height: 4px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.15);
+    transition: background 0.3s;
+  }
+  .quiz-progress span.active { background: #D4A017; }
+
+  .quiz-step { display: none; }
+  .quiz-step.active { display: block; }
+
+  .quiz-q {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+
+  .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+
+  .quiz-opt {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(212,160,23,0.2);
+    border-radius: 12px;
+    padding: 14px 20px;
+    color: rgba(255,255,255,0.88);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+  .quiz-opt:hover {
+    background: rgba(212,160,23,0.15);
+    border-color: #D4A017;
+    transform: translateY(-2px);
+  }
+
+  .quiz-final { display: none; }
+  .quiz-final.active { display: block; }
+
+  .quiz-final-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #D4A017;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .quiz-final-text {
+    color: rgba(255,255,255,0.85);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .quiz-final-text strong { color: #fff; }
+
+  .quiz-cta-primary {
+    display: block;
+    background: #2ECC40;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    padding: 18px 24px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .quiz-cta-primary:hover { opacity: 0.88; }
+
+  .quiz-cta-secondary {
+    display: block;
+    background: transparent;
+    color: rgba(255,255,255,0.65);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: underline;
+    cursor: pointer;
+    border: none;
+    padding: 8px;
+    transition: color 0.2s;
+    width: 100%;
+    text-align: center;
+  }
+  .quiz-cta-secondary:hover { color: #fff; }
+
+  @media (max-width: 720px) {
+    .quiz-box { padding: 28px 20px; }
+    .quiz-cta-primary { font-size: 0.85rem; white-space: normal; }
+  }
   </style>
 </head>
 <body>
+
+<!-- ══════════════════════════════════════ QUIZ ══ -->
+<div id="quiz-overlay">
+  <div class="quiz-box">
+    <div class="quiz-logo">CÓDIGO DIVINO</div>
+
+    <div class="quiz-progress">
+      <span class="active" id="p1"></span>
+      <span id="p2"></span>
+      <span id="p3"></span>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="quiz-step active" id="step1">
+      <p class="quiz-q">👉 Cuando lees la Biblia, ¿qué suele pasar?</p>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="nextStep(2)">Siento que no la entiendo profundamente</div>
+        <div class="quiz-opt" onclick="nextStep(2)">Entiendo algunas partes, pero me pierdo</div>
+        <div class="quiz-opt" onclick="nextStep(2)">Leo, pero no logro aplicarla en mi vida</div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="quiz-step" id="step2">
+      <p class="quiz-q">👉 ¿Qué es lo que más deseas al estudiar la Biblia?</p>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="nextStep(3)">Entender cada versículo con claridad</div>
+        <div class="quiz-opt" onclick="nextStep(3)">Poder explicarla a otras personas</div>
+        <div class="quiz-opt" onclick="nextStep(3)">Sentir un verdadero crecimiento espiritual</div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="quiz-step" id="step3">
+      <p class="quiz-q">👉 Si existiera un método simple y visual que te ayudara a entender toda la Biblia, ¿lo usarías?</p>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="showFinal()">Sí, sin duda</div>
+        <div class="quiz-opt" onclick="showFinal()">Tal vez, si es fácil de aplicar</div>
+        <div class="quiz-opt" onclick="showFinal()">Sí, lo necesito ahora</div>
+      </div>
+    </div>
+
+    <!-- Final -->
+    <div class="quiz-final" id="quiz-final">
+      <p class="quiz-final-title">👉 Independientemente de tus respuestas, hay algo claro:</p>
+      <div class="quiz-final-text">
+        <p><strong>No necesitas seguir sintiéndote perdido al leer la Biblia.</strong></p>
+        <br>
+        <p>Existe una forma simple, visual y guiada que ya está ayudando a miles de personas a entender cada capítulo, cada mensaje y cada enseñanza con claridad.</p>
+        <br>
+        <p>Ahora tienes dos opciones:</p>
+      </div>
+      <a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="quiz-cta-primary">
+        SÍ, QUIERO ENTENDER LA BIBLIA AHORA
+      </a>
+      <button class="quiz-cta-secondary" onclick="closeQuiz()">
+        QUIERO VER LOS DETALLES Y LOS BONOS PRIMERO
+      </button>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════ HERO DESKTOP ══ -->
 <section class="hero-desktop">
@@ -1182,6 +1386,29 @@
   function toggleFaq(el) {
     el.parentElement.classList.toggle('open');
   }
+
+  function nextStep(n) {
+    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step' + n).classList.add('active');
+    for (var i = 1; i <= 3; i++) {
+      var dot = document.getElementById('p' + i);
+      dot.classList.toggle('active', i <= n);
+    }
+  }
+
+  function showFinal() {
+    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+    document.querySelector('.quiz-progress').style.display = 'none';
+    document.getElementById('quiz-final').classList.add('active');
+  }
+
+  function closeQuiz() {
+    document.getElementById('quiz-overlay').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  // Block scroll while quiz is open
+  document.body.style.overflow = 'hidden';
 </script>
 
 <!-- Meta Pixel Code (deferred – does not block render) -->
