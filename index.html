@@ -732,15 +732,28 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 6px;
     margin-bottom: 24px;
+    padding: 0 8px;
   }
   .quiz-books img {
-    width: calc(100% / 5 - 6px);
-    max-width: 90px;
+    width: clamp(38px, 9vw, 72px);
     object-fit: contain;
     pointer-events: none;
+    margin-left: -18px;
+    position: relative;
+    transition: transform 0.2s;
   }
+  .quiz-books img:first-child { margin-left: 0; }
+  .quiz-books img:nth-child(1)  { z-index: 1; }
+  .quiz-books img:nth-child(2)  { z-index: 2; }
+  .quiz-books img:nth-child(3)  { z-index: 3; }
+  .quiz-books img:nth-child(4)  { z-index: 4; }
+  .quiz-books img:nth-child(5)  { z-index: 5; }
+  .quiz-books img:nth-child(6)  { z-index: 6; }
+  .quiz-books img:nth-child(7)  { z-index: 7; }
+  .quiz-books img:nth-child(8)  { z-index: 8; }
+  .quiz-books img:nth-child(9)  { z-index: 9; }
+  .quiz-books img:nth-child(10) { z-index: 10; }
 
   .quiz-progress {
     display: flex;
@@ -869,6 +882,11 @@
       <img src="https://i.postimg.cc/VvNvj9Jy/3.png" alt="">
       <img src="https://i.postimg.cc/cHF44KXK/4.png" alt="">
       <img src="https://i.postimg.cc/SN2Nkx8K/5.png" alt="">
+      <img src="https://i.postimg.cc/L472CF7s/3.png" alt="">
+      <img src="https://i.postimg.cc/gJjbsgH0/4.png" alt="">
+      <img src="https://i.postimg.cc/hjXPvDw5/2.png" alt="">
+      <img src="https://i.postimg.cc/mkFffhq4/1.png" alt="">
+      <img src="https://i.postimg.cc/XqySSXh6/5.png" alt="">
     </div>
 
     <div class="quiz-progress">
