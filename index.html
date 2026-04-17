@@ -123,70 +123,9 @@ img{pointer-events:none;-webkit-user-drag:none}
 .section{padding:60px 16px}
 .container{padding:0 16px}
 }
-#quiz-overlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(160deg,#0d0500 0%,#1a0900 60%,#0d0500 100%);display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
-#quiz-overlay.hidden{display:none}
-.quiz-box{background:rgba(255,255,255,.04);border:1px solid rgba(212,160,23,.25);border-radius:20px;padding:40px 36px;max-width:560px;width:100%;text-align:center}
-.quiz-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;letter-spacing:4px;background:linear-gradient(90deg,#c8922a,#f5d16a,#c8922a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:28px}
-.quiz-books{display:flex;justify-content:center;align-items:flex-end;margin-bottom:24px;padding:0 8px}
-.quiz-books img{width:clamp(38px,9vw,72px);object-fit:contain;margin-left:-18px;position:relative}
-.quiz-books img:first-child{margin-left:0}
-.quiz-books img:nth-child(1){z-index:1}.quiz-books img:nth-child(2){z-index:2}.quiz-books img:nth-child(3){z-index:3}.quiz-books img:nth-child(4){z-index:4}.quiz-books img:nth-child(5){z-index:5}.quiz-books img:nth-child(6){z-index:6}.quiz-books img:nth-child(7){z-index:7}.quiz-books img:nth-child(8){z-index:8}.quiz-books img:nth-child(9){z-index:9}.quiz-books img:nth-child(10){z-index:10}.quiz-books img:nth-child(11){z-index:11}
-.quiz-progress{display:flex;justify-content:center;gap:8px;margin-bottom:28px}
-.quiz-progress span{width:32px;height:4px;border-radius:4px;background:rgba(255,255,255,.15);transition:background .3s}
-.quiz-progress span.active{background:#D4A017}
-.quiz-step{display:none}.quiz-step.active{display:block}
-.quiz-q{font-family:'Cinzel',serif;font-size:clamp(1rem,3vw,1.25rem);color:#fff;font-weight:700;margin-bottom:24px;line-height:1.4}
-.quiz-options{display:flex;flex-direction:column;gap:12px}
-.quiz-opt{background:rgba(255,255,255,.06);border:1px solid rgba(212,160,23,.2);border-radius:12px;padding:14px 20px;color:rgba(255,255,255,.88);font-family:'Raleway',sans-serif;font-size:.95rem;font-weight:600;cursor:pointer;text-align:left;transition:background .2s,border-color .2s,transform .15s}
-.quiz-opt:hover{background:rgba(212,160,23,.15);border-color:#D4A017;transform:translateY(-2px)}
-.quiz-final{display:none}.quiz-final.active{display:block}
-.quiz-final-title{font-family:'Cinzel',serif;font-size:clamp(1rem,3vw,1.2rem);color:#D4A017;font-weight:700;margin-bottom:16px}
-.quiz-final-text{color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.75;margin-bottom:24px}
-.quiz-final-text strong{color:#fff}
-.quiz-cta-primary{display:block;background:#2ECC40;color:#fff;font-family:'Raleway',sans-serif;font-weight:900;font-size:clamp(.65rem,3.5vw,1rem);letter-spacing:1px;text-decoration:none;padding:18px 20px;border-radius:100px;margin-bottom:14px;transition:opacity .2s;white-space:nowrap;text-align:center}
-.quiz-cta-primary:hover{opacity:.88}
-.quiz-cta-secondary{display:block;background:transparent;color:#fff;font-family:'Raleway',sans-serif;font-weight:900;font-size:clamp(.6rem,3.2vw,.92rem);letter-spacing:1px;cursor:pointer;border:2px solid rgba(212,160,23,.6);padding:16px 20px;border-radius:100px;white-space:nowrap;width:100%;text-align:center;transition:border-color .2s,background .2s}
-.quiz-cta-secondary:hover{border-color:#D4A017;background:rgba(212,160,23,.1)}
-@media(max-width:720px){.quiz-box{padding:28px 20px}}
 </style>
 </head>
 <body>
-<div id="quiz-overlay">
-  <div class="quiz-box">
-    <div class="quiz-logo">CÓDIGO DIVINO</div>
-    <div class="quiz-books">
-      <img src="https://i.postimg.cc/LX3gk6v1/1.png" alt=""><img src="https://i.postimg.cc/hP5z1Y8M/2.png" alt=""><img src="https://i.postimg.cc/VvNvj9Jy/3.png" alt=""><img src="https://i.postimg.cc/cHF44KXK/4.png" alt=""><img src="https://i.postimg.cc/SN2Nkx8K/5.png" alt=""><img src="https://i.postimg.cc/L472CF7s/3.png" alt=""><img src="https://i.postimg.cc/gJjbsgH0/4.png" alt=""><img src="https://i.postimg.cc/hjXPvDw5/2.png" alt=""><img src="https://i.postimg.cc/mkFffhq4/1.png" alt=""><img src="https://i.postimg.cc/XqySSXh6/5.png" alt=""><img src="https://i.postimg.cc/SRF8Xnvr/CODIGO-DIVINO.png" alt="">
-    </div>
-    <div class="quiz-progress">
-      <span class="active" id="p1"></span><span id="p2"></span><span id="p3"></span>
-    </div>
-    <div class="quiz-step active" id="step1">
-      <p class="quiz-q">👉 Cuando lees la Biblia, ¿qué suele pasar?</p>
-      <div class="quiz-options">
-        <div class="quiz-opt" onclick="setProfile('new');nextStep(2)">Siento que no la entiendo profundamente</div>
-        <div class="quiz-opt" onclick="setProfile('mid');nextStep(2)">Entiendo algunas partes, pero me pierdo</div>
-        <div class="quiz-opt" onclick="setProfile('exp');nextStep(2)">Leo, pero no logro aplicarla en mi vida</div>
-      </div>
-    </div>
-    <div class="quiz-step" id="step2">
-      <p class="quiz-q">👉 ¿Qué es lo que más deseas al estudiar la Biblia?</p>
-      <div class="quiz-options">
-        <div class="quiz-opt" onclick="nextStep(3)">Entender cada versículo con claridad</div>
-        <div class="quiz-opt" onclick="nextStep(3)">Poder explicarla a otras personas</div>
-        <div class="quiz-opt" onclick="nextStep(3)">Sentir un verdadero crecimiento espiritual</div>
-      </div>
-    </div>
-    <div class="quiz-step" id="step3">
-      <p class="quiz-q">👉 Si existiera un método simple y visual que te ayudara a entender toda la Biblia, ¿lo usarías?</p>
-      <div class="quiz-options">
-        <div class="quiz-opt" onclick="showFinal()">Sí, sin duda</div>
-        <div class="quiz-opt" onclick="showFinal()">Tal vez, si es fácil de aplicar</div>
-        <div class="quiz-opt" onclick="showFinal()">Sí, lo necesito ahora</div>
-      </div>
-    </div>
-    <div class="quiz-final" id="quiz-final"></div>
-  </div>
-</div>
 
 <section class="hero-desktop">
   <div class="hero__bg"></div>
@@ -368,13 +307,7 @@ img{pointer-events:none;-webkit-user-drag:none}
 </section>
 
 <script>
-var qp='new',qm={new:{t:'📖 Estás exactamente donde necesitas estar.',b:'<p>No entender la Biblia no es tu culpa. Nunca te la explicaron bien.</p><br><p>CÓDIGO DIVINO fue creado para ti: <strong>sin conocimiento previo, sin complicaciones.</strong> En días vas a entender lo que otros tardan años intentando.</p>'},mid:{t:'🔥 Estás más cerca de lo que crees.',b:'<p>Te falta el hilo que conecta todo. Esa sensación de "algo me escapa" tiene solución.</p><br><p>CÓDIGO DIVINO te da el <strong>panorama completo</strong>: cada libro en su contexto, cada mensaje con su propósito. Todo va a cobrar un sentido nuevo.</p>'},exp:{t:'💡 Leer la Biblia es solo el primer paso.',b:'<p>Ya conoces la Biblia, pero ese conocimiento aún no está transformando tu vida ni la de otros.</p><br><p>CÓDIGO DIVINO te da las herramientas para <strong>enseñar, predicar y aplicar</strong> la Palabra con claridad. Es hora de activar lo que ya sabes.</p>'}};
-function setProfile(p){qp=p}
-function nextStep(n){document.querySelectorAll('.quiz-step').forEach(function(s){s.classList.remove('active')});document.getElementById('step'+n).classList.add('active');for(var i=1;i<=3;i++)document.getElementById('p'+i).classList.toggle('active',i<=n)}
-function showFinal(){document.querySelectorAll('.quiz-step').forEach(function(s){s.classList.remove('active')});document.querySelector('.quiz-progress').style.display='none';var m=qm[qp],f=document.getElementById('quiz-final');f.innerHTML='<p class="quiz-final-title">'+m.t+'</p><div class="quiz-final-text">'+m.b+'<br><p><strong>Creyente o no, curioso o buscador:</strong> la Biblia tiene algo para ti.</p></div><a href="https://pay.hotmart.com/C105309162W?checkoutMode=10" class="quiz-cta-primary">QUIERO ENTENDER LA BIBLIA AHORA</a><button class="quiz-cta-secondary" onclick="closeQuiz()">VER LO QUE INCLUYE PRIMERO</button>';f.classList.add('active')}
-function closeQuiz(){document.getElementById('quiz-overlay').classList.add('hidden');document.body.style.overflow=''}
 function toggleFaq(el){el.parentElement.classList.toggle('open')}
-document.body.style.overflow='hidden';
 </script>
 <script>window.addEventListener('load',function(){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1653113815721315');fbq('track','ViewContent')})</script>
 </body>
